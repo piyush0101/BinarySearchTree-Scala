@@ -1,14 +1,5 @@
 import com.pewpew.bst._
 
-object BinarySearchTree {
-  def main(args: Array[String]) {
-    val tree = new BinarySearchTree
-    val bst = tree.fill(List(4, 6, 7, 1, 2))
-    println(tree.inOrder(bst, List()))
-
-  }
-}
-
 class BinarySearchTree {
 
   def insert(element: Int, tree: BinaryTree): BinaryTree = {
