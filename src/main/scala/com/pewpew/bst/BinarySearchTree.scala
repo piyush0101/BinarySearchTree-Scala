@@ -1,5 +1,14 @@
 import com.pewpew.bst._
 
+object BinarySearchTree {
+  def main(args: Array[String]) {
+    val tree = new BinarySearchTree
+    val bst = tree.fill(List(4, 6, 7, 1, 2))
+    println(tree.inOrder(bst, List()))
+
+  }
+}
+
 class BinarySearchTree {
 
   def insert(element: Int, tree: BinaryTree): BinaryTree = {
@@ -11,11 +20,8 @@ class BinarySearchTree {
     }
   }
 
-  def fill(elements: List[Int], tree: BinaryTree): BinaryTree = {
-    elements match {
-      case x :: xs => fill(xs, insert(x, tree))
-      case nil => tree
-    }
+  def fill(elements: List[Int]): BinaryTree = {
+    elements.foldLeft(EmptyTree(): BinaryTree)((tree: BinaryTree, elem: Int) => insert(elem, tree))
   }
 
   def preOrder(tree: BinaryTree, traversal: List[Int]): List[Int] = {
